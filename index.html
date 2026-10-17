@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Performance Analytics</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#0c1024;color:white}
+header{padding:22px 6%;background:#171b38;display:flex;justify-content:space-between;flex-wrap:wrap;gap:15px}
+.logo{font-size:21px;color:#c4b5fd;font-weight:bold}
+nav a{color:white;text-decoration:none;margin:8px}
+.hero{text-align:center;padding:75px 20px;background:linear-gradient(135deg,#5427a8,#1765ad,#11152d)}
+.hero h1{font-size:clamp(30px,6vw,48px);margin-bottom:20px}
+.hero h1 span{color:#e0c3ff}
+.hero p{max-width:650px;margin:0 auto 28px;line-height:1.8}
+.btn{display:inline-block;background:#9b72f2;color:white;padding:14px 22px;border:0;border-radius:9px;text-decoration:none;cursor:pointer;font-weight:bold}
+section{padding:40px 6%}
+.title{text-align:center;font-size:28px;color:#c4b5fd;margin-bottom:28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
+.card{background:#191f3e;border:1px solid #373d69;border-radius:16px;padding:24px;margin-bottom:10px}
+.card h3{color:#c6d2ff;margin-bottom:16px}
+.number{font-size:30px;font-weight:bold;color:#c4b5fd}
+.small{font-size:13px;color:#b7c1e5;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.bar{height:13px;background:#343958;border-radius:10px;margin:15px 0 8px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,#a855f7,#38bdf8)}
+label{display:block;margin:18px 0 8px}
+input{width:100%;padding:13px;border-radius:8px;border:1px solid #454c7a;background:#101630;color:white;font-size:16px}
+button{width:100%;margin-top:20px}
+#result{margin-top:20px;background:#252a50;padding:18px;border-radius:10px;line-height:1.8}
+footer{text-align:center;padding:25px;background:#171b38;color:#b7c1e5;line-height:1.8}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">🎓 Student Analytics</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#dashboard">Dashboard</a>
+<a href="#prediction">Prediction</a>
+<a href="#about">About</a>
+</nav>
+</header>
+
+<div class="hero" id="home">
+<h1>Understand Performance.<br><span>Predict Potential.</span></h1>
+<p>Explore student performance through study hours, attendance, assignments and examination results with this Data Science project.</p>
+<a class="btn" href="#dashboard">Explore Dashboard ↓</a>
+</div>
+
+<section id="dashboard">
+<h2 class="title">📊 Analytics Dashboard</h2>
+<div class="cards">
+<div class="card"><h3>Total Students</h3><div class="number">10</div><p class="small">Sample records</p></div>
+<div class="card"><h3>Average Exam Marks</h3><div class="number">74.00</div><p class="small">Out of 100</p></div>
+<div class="card"><h3>Average Attendance</h3><div class="number">79.10%</div><p class="small">Sample records</p></div>
+<div class="card"><h3>Average Study Hours</h3><div class="number">4.30</div><p class="small">Hours per day</p></div>
+</div>
+</section>
+
+<section>
+<h2 class="title">📈 Performance Insights</h2>
+<div class="grid">
+<div class="card">
+<h3>Average Exam Marks</h3>
+<div class="bar"><div class="fill" style="width:74%"></div></div>
+<p class="small">74 out of 100</p>
+<h3 style="margin-top:25px">Average Attendance</h3>
+<div class="bar"><div class="fill" style="width:79.1%"></div></div>
+<p class="small">79.1 percent</p>
+</div>
+<div class="card">
+<h3>Study Hours vs Exam Marks</h3>
+<p class="small">Sample observations</p>
+<div class="bar"><div class="fill" style="width:55%"></div></div>
+<p class="small">2 hours — 55 marks</p>
+<div class="bar"><div class="fill" style="width:75%"></div></div>
+<p class="small">4 hours — 75 marks</p>
+<div class="bar"><div class="fill" style="width:88%"></div></div>
+<p class="small">6 hours — 88 marks</p>
+<div class="bar"><div class="fill" style="width:97%"></div></div>
+<p class="small">8 hours — 97 marks</p>
+</div>
+</div>
+</section>
+
+<section id="prediction">
+<h2 class="title">🤖 Exam Marks Estimator</h2>
+<div class="card">
+<label for="hours">Study Hours Per Day (0–24)</label>
+<input id="hours" type="number" min="0" max="24" value="4">
+<label for="attendance">Attendance Percentage (0–100)</label>
+<input id="attendance" type="number" min="0" max="100" value="80">
+<label for="assignment">Assignment Score (0–100)</label>
+<input id="assignment" type="number" min="0" max="100" value="75">
+<button class="btn" onclick="predict()">Estimate Exam Marks</button>
+<div id="result" hidden></div>
+<p class="small" style="margin-top:15px">This is an illustrative estimate, not a prediction from the trained Python model.</p>
+</div>
+</section>
+
+<section id="about">
+<h2 class="title">💡 About This Project</h2>
+<div class="card">
+<h3>Project Objective</h3>
+<p class="small">To explore student performance using study hours, attendance, assignment scores and exam marks.</p>
+<h3 style="margin-top:20px">Technologies Used</h3>
+<p class="small">Python, Pandas, Matplotlib, Seaborn, Scikit-learn, HTML, CSS and JavaScript.</p>
+<h3 style="margin-top:20px">Learning Outcomes</h3>
+<p class="small">Data analysis, data visualization, introductory machine learning and responsive web design.</p>
+<p class="small" style="margin-top:15px">This demonstration uses 10 sample records. Results are not validated real-world academic predictions.</p>
+</div>
+</section>
+
+<footer>
+<p>Student Performance Analytics & Prediction System</p>
+<p>Academic Data Science Project</p>
+</footer>
+
+<script>
+function predict(){
+let h=Number(document.getElementById("hours").value);
+let a=Number(document.getElementById("attendance").value);
+let s=Number(document.getElementById("assignment").value);
+let r=document.getElementById("result");
+r.hidden=false;
+if(document.getElementById("hours").value===""||document.getElementById("attendance").value===""||document.getElementById("assignment").value===""||h<0||h>24||a<0||a>100||s<0||s>100){
+r.textContent="Please enter valid values.";
+return;
+}
+let marks=5+3.5*h+0.2*a+0.35*s;
+marks=Math.max(0,Math.min(100,marks));
+r.innerHTML="<h3>Illustrative Estimate: "+marks.toFixed(1)+" / 100</h3><p>This demo formula is not connected to the trained Python model.</p>";
+}
+</script>
+
+</body>
+                      </html>
